@@ -1,0 +1,81 @@
+% Template.tex
+\documentclass[11pt, a4paper]{article}
+\usepackage{fontspec}       % For custom fonts
+\usepackage{hyperref}       % For hyperlinks
+\usepackage{enumitem}       % For more control over lists
+\usepackage{fontawesome5}   % Use the newer fontawesome5 package for icons
+\usepackage[margin=1.2in]{geometry} % Set page margins
+\usepackage{fancyhdr}       % For custom headers/footers
+\usepackage{titlesec}       % To control title formatting
+\usepackage{xcolor}         % To allow custom colors
+
+% Hyperref options for custom link color (slightly blue links)
+\hypersetup{
+    colorlinks=true,        % Enable colored links
+    linkcolor=black,        % Black for internal links
+    urlcolor=[rgb]{0.9, 0.61, 0.119}, % Soft blue for URLs
+    citecolor=black,        % Black for citation links
+    filecolor=black         % Black for file links
+}
+
+% Reduce the overall font size
+\renewcommand{\normalsize}{\small}
+
+% Remove section numbers
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{}{0em}{}    % Adjust formatting of \section titles
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{}{0em}{}    % Adjust formatting of \subsection titles
+
+% Define tightlist for compact lists
+\newcommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parskip}{0pt}%
+}
+
+% Define a custom large font size command
+\newcommand{\myLarge}{\Large}
+
+% Set up custom header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\texttt{davide@protoweb.me}}  % Replace with actual email
+\lhead{Davide Staffieri}  % Replace with your name
+\rfoot{\thepage}
+
+% Document metadata
+\title{Curriculum Vitae}  % Your CV Title
+\author{Davide Staffieri}  % Replace with your name
+\date{\today}            % Use today's date
+
+% Custom command to format icons and links neatly
+\newcommand{\iconlink}[3]{#1 \href{#2}{\texttt{#3}}}
+
+\begin{document}
+
+% Disable header and footer for the first page
+\thispagestyle{empty}
+
+% Title section with FontAwesome icons
+\begin{flushleft}
+    {\Huge \textbf{Davide Staffieri}}\par    % Use explicit title text
+    \vspace{0.5em}
+    {\myLarge}\par          % Use explicit author name
+    \vspace{0.5em}
+    
+    % FontAwesome icons with corresponding links or text, formatted similarly to the image
+    \iconlink{\faGlobe}{https://protoweb.me}{protoweb.me} \hspace{2em}  % Website link with globe icon
+    \iconlink{\faEnvelope}{mailto:davide@protoweb.me}{Email} \hspace{2em}  % Email icon with email link
+    \iconlink{\faGithub}{https://github.com/davidestf}{GitHub} \hspace{2em}    % GitHub icon with GitHub profile link
+    \iconlink{\faTwitter}{https://twitter.com/davidestaffieri}{Twitter} \hspace{2em} % Twitter icon with handle link
+    \iconlink{\faLinkedin}{https://linkedin.com/in/davidestaffieri}{Linkedin}          % LinkedIn icon with profile link
+\end{flushleft}
+
+% Body content from the markdown file
+${body}
+
+% Enable header and footer for subsequent pages
+\newpage
+\pagestyle{fancy}  % Re-enable fancy header and footer for all other pages
+
+\end{document}
